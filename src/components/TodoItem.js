@@ -14,7 +14,7 @@ export default class TodoItem extends Component {
           <input type="checkbox" onChange={toggleComplete.bind(this, id)} />
           {title}</p>
           <button style={{background:"red",color:"white",border:"none",
-          borderRadius:"50%",cursor:"pointer",float:"right"}}
+          borderRadius:"50%",cursor:"pointer",float:"right",padding:"8px"}}
            onClick={delTodoItems.bind(this,id)}>Delete</button>
 
       </React.Fragment>

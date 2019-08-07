@@ -6,25 +6,31 @@ export default class AddItem extends Component {
 
   };
 
-  onSubmit =(e)=>{
+  // onSubmit =(e)=>{
+  //   e.preventDefault();
+  //   this.props.addNewItem(this.state.title);
+  //   this.setState({title:""});
+  // }
+  // onChange =(e)=> this.setState({[e.target.name]:e.target.value});
+
+  addNewItem = (e) => {
     e.preventDefault();
-    this.props.addNewItem(this.state.title);
-    this.setState({title:""});
-  }
-  onChange =(e)=> this.setState({[e.target.name]:e.target.value});
+    var title = (this.title.value).trim();
+    this.props.addNewItem(title);
+}
 
   render() {
   
     return (
       <React.Fragment>
-        <form onSubmit={this.onSubmit}>
+        <form >
             <input type="text" name="title"
              placeholder="Add to list ...."
              style={{flex:"10", padding:'5px'}}
-             value={this.state.title}
-             onChange={this.onChange}></input>
+             ref={r => this.title = r}
+             ></input>
 
-            <input type="submit" value="Submit" style={{flex:1}}></input>
+            <input type="submit" onClick={this.addNewItem} value="Add" style={{flex:1}}></input>
         </form>
       
 
